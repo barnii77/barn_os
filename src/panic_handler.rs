@@ -14,6 +14,8 @@ fn panic(info: &PanicInfo) -> ! {
     } else {
         "<unknown panic reason>"
     };
+    // TODO: this is actually broken, I need to add an offset parameter to the print function that
+    // tells it where to start printing
     crate::vga_buffer::print_white_on_black("panic at ".bytes());
     crate::vga_buffer::print_white_on_black(file.bytes());
     crate::vga_buffer::print_white_on_black(":".bytes());
