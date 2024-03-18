@@ -8,6 +8,8 @@ if [ `hostname` != "LAPTOP-H1NF4KQD" ]; then
     exit 1
 fi
 
-cargo build --release
+# cargo build --release
+cargo bootimage
 # copy the file to windows
-cp target/thumbv7em-none-eabihf/release/barn_os /mnt/c/Users/david/barn_os_qemu
+cp target/x86_64-barn_os/debug/bootimage-barn-os.bin /mnt/c/Users/david/bootimage-barn-os.bin
+echo 'run using "qemu-system-x86_64 -drive format=raw,file=C:\Users\david\barn_os_qemu\bootimage-barn-os.bin"'
